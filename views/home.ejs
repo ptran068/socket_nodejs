@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="layout.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="socket.io.js"></script>
+    <script src="xuly.js"></script>
+</head>
+
+
+  <body>
+        <script>
+                window.fbAsyncInit = function() {
+                  FB.init({
+                    appId      : '2240438179554963',
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : '3.2'
+                  });
+                    
+                  FB.AppEvents.logPageView();   
+                    
+                };
+              
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+                (function(d, s, id){
+                   var js, fjs = d.getElementsByTagName(s)[0];
+                   if (d.getElementById(id)) {return;}
+                   js = d.createElement(s); js.id = id;
+                   js.src = "https://connect.facebook.net/en_US/sdk.js";
+                   fjs.parentNode.insertBefore(js, fjs);
+                 }(document, 'script', 'facebook-jssdk'));
+            
+                 function checkLoginState() {
+              FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+              });
+            }
+                 <fb:login-button 
+              scope="public_profile,email"
+              onlogin="checkLoginState();">
+            </fb:login-button>
+            
+            
+              </script>
+   <div id="wraper">
+        <div id="loginForm">
+            <h3>What is your name</h3>
+            <input type="text" id="txtUsername">
+            <input type="button" value="Register" id="btnRegister">
+        </div>
+
+        <div id="chatForm">
+            <div id="left">
+                <div id="boxTitle">Users Online</div>
+                <div id="boxContent">
+                   
+                </div>
+
+            </div>
+            <div id="right">
+                <div id="sayHi">
+                    Hello: <span id="currentUser">Phong</span>
+                    <input id="btnLogout" type="button" value="Logout">
+                </div>
+                <div id="listMessages">
+
+                </div>
+                <div id="thongbao"></div>
+                <input type="text" id="txtMessage">
+                <input type="button" id="send" value="send">
+            </div>
+        </div>
+   </div>
+  </body>
+</html>
